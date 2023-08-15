@@ -1,3 +1,30 @@
+#ifndef LISTS_H
+#define LISTS_H
+
+/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for project
+ */
+typedef struct listint_s
+{
+    int n;
+    struct listint_s *next;
+} listint_t;
+
+size_t print_listint(const listint_t *h);
+listint_t *add_nodeint_end(listint_t **head, const int n);
+void free_listint(listint_t *head);
+
+int is_palindrome(listint_t **head);
+
+#endif /* LISTS_H */
+carrie@ubuntu:0x03$
+
+carrie@ubuntu:0x03$ cat linked_lists.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
@@ -16,9 +43,9 @@ size_t print_listint(const listint_t *h)
     n = 0;
     while (current != NULL)
     {
-	printf("%i\n", current->n);
-	current = current->next;
-	n++;
+        printf("%i\n", current->n);
+        current = current->next;
+        n++;
     }
 
     return (n);
@@ -39,18 +66,18 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
     new = malloc(sizeof(listint_t));
     if (new == NULL)
-	return (NULL);
+        return (NULL);
 
     new->n = n;
     new->next = NULL;
 
     if (*head == NULL)
-	*head = new;
+        *head = new;
     else
     {
-	while (current->next != NULL)
-	    current = current->next;
-	current->next = new;
+        while (current->next != NULL)
+            current = current->next;
+        current->next = new;
     }
 
     return (new);
@@ -67,9 +94,10 @@ void free_listint(listint_t *head)
 
     while (head != NULL)
     {
-	current = head;
-	head = head->next;
-	free(current);
+        current = head;
+        head = head->next;
+        free(current);
     }
 }
+carrie@ubuntu:0x03$
 
