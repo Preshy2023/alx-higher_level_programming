@@ -2,7 +2,6 @@
 # 100-matrix_mul.py
 """Defines a matrix multiplication function."""
 
-
 def matrix_mul(m_a, m_b):
     """Multiply two matrices.
 
